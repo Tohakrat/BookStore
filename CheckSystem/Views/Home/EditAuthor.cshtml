@@ -1,0 +1,31 @@
+﻿
+
+
+<h2>EditAuthor</h2>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Редактировать автора</title>
+</head>
+<body>
+
+    <h3>Данные автора:</h3>
+    <form method="post">
+        <p>Имя автора </p>
+        <p>
+            <input type="text" name="Name" value="@ViewBag.Author.Name" />
+        </p>
+        <p>Возраст </p>
+        <p>
+            <input type="text" name="Age" value="@ViewBag.Author.Age" />
+        </p>
+        <p>
+            <input type="hidden" name="Id" value="@ViewBag.Author.Id" />
+        </p>
+        <p>
+            <input type="submit" value="Отправить" />
+        </p>
+
+    </form>
+
+</body>
+

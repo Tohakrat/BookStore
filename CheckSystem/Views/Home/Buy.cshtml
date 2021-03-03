@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Покупки</title>
+</head>
+<body>
+    <div>
+        <h3>Данные покупки:</h3>
+        <form method="post">
+            <p>Введите свое имя </p>
+            <p>
+                <input type="text" name="Person" />
+            </p>
+            <p>Введите свой адрес </p>
+            <p>
+                <input type="text" name="Address" />
+            </p>
+
+            <p>
+                <input type="hidden" value="@ViewBag.BookId" name="BookId" />
+            </p>
+            
+            <p>
+                <input type="submit" value="Отправить" />
+            </p>
+
+
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@model BookStore.Controllers.IndexViewModel
+@using CheckSystem.Helpers
+
+@{
+    ViewBag.Title = "AllBooks";
+}
+
+<h2>AllBooks</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Books</title>
+    <link rel="stylesheet"
+          type="text/css"
+          href="Content/Site.css" />
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td><p>BookID</p></td>
+                <td><p>Name</p></td>
+                <td><p>Price</p></td>
+                <td><p>AuthorId</p></td>
+                <!--<td><p>Action</p></td>-->
+
+                <td></td>
+            </tr>
+            @foreach (var b in Model.Books)
+            {
+                <tr>
+                    <td><p>@b.Name</p></td>
+                    <td><p>@b.Id</p></td>
+
+                    <td><p>@b.Price</p></td>
+                    <td><p>@b.AuthorId</p></td>
+                    <td><p><a href="/Home/EditBook/@b.Id">Edit</a></p></td>
+                    <td></td>
+                </tr>
+            }
+        </table>
+        <div class="btn-group">
+            @Html.PageLinks(Model.PageInfo, x => Url.Action("AllBooks", new { page = x }))
+        </div>
+    </div>
+</body>
+</html>
+

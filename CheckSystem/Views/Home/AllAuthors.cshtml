@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "AllAuthors";
+}
+
+<h2>AllAuthors</h2>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Authors</title>
+    <link rel="stylesheet"
+          type="text/css"
+          href="Content/Site.css" />
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td><p>Id</p></td>
+                <td><p>Name</p></td>
+                <td><p>Age</p></td>
+                <td><p>CRUD</p></td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.Authors)
+            {
+                <tr>
+                    <td><p>@b.Id</p></td>
+                    <td><p>@b.Name</p></td>
+                    <td><p>@b.Age</p></td>
+                    <td>
+                        <p><a href="/Home/EditAuthor/@b.Id">Edit</a></p>
+                        <p><a href="/Home/DeleteAuthor/@b.Id">Delete</a></p>
+                    </td>
+
+                    <td></td>
+                </tr>
+            }
+        </table>
+    </div>
+    <td><p><a href="/Home/NewAuthor">Add author</a></p></td>
+    
+</body>
+</html>
+
+

@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "NewBook";
+}
+<html>
+
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Новая книга</title>
+</head>
+<body>
+
+    <h3>Данные книги:</h3>
+    <form method="post">
+        <p>Название книги </p>
+        <p>
+            <input type="text" name="Name" />
+        </p>
+        <p>Цена </p>
+        <p>
+            <input type="text" name="Price" />
+        </p>
+        <p>Автор </p>
+        <p>
+            <select name="AuthorId" size="4" multiple>
+                @foreach (var b in @ViewBag.Authors)
+                {
+                    <option value="@b.Id">@b.Name</option>
+                }
+            </select>
+        </p>
+
+        <p>
+            <input type="submit" value="Отправить" />
+        </p>
+
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "EditBook";
+}
+
+<h2>EditBook</h2>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> Редактировать книгу</title>
+</head>
+<body>
+
+    <h3>Данные книги:</h3>
+    <form method="post">
+        <p>Название книги </p>
+        <p>
+            <input type="text" name="Name" value="@ViewBag.Book.Name" />
+        </p>
+        <p>Цена </p>
+        <p>
+            <input type="text" name="Price" value="@ViewBag.Book.Price" />
+        </p>
+        <p>
+            <input type="hidden" name="Id" value="@ViewBag.Book.Id" />
+        </p>
+        <p>Автор </p>
+        <p>
+            <select name="AuthorId" size="4" multiple>
+                @foreach (var b in @ViewBag.Authors)
+                {
+                    <option value="@b.Id">@b.Name</option>
+                }
+            </select>
+        </p>
+
+        <p>
+            <input type="submit" value="Отправить" />
+        </p>
+
+
+    </form>
+
+</body>
+</html>

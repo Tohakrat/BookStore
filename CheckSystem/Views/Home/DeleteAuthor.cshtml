@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "DeleteAuthor";
+}
+
+<h2>DeleteAuthor</h2>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Удалить автора</title>
+</head>
+<body>
+
+    <h3>Данные автора:</h3>
+    <form method="post">
+        <p>Имя автора </p>
+        <p>
+            <input type="text" name="Name" value="@ViewBag.Author.Name" />
+        </p>
+
+        <p>
+            <input type="hidden" name="Id" value="@ViewBag.Author.Id" />
+        </p>
+        <p>
+            <input type="hidden" name="doing" value="true" />
+        </p>
+        <p>
+            <h3>Удалить автора?</h3>
+            <input type="submit" value="Да" />
+
+        </p>
+
+    </form>
+
+</body>
+
+
