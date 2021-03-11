@@ -20,7 +20,7 @@ namespace BookStore.Controllers
     }
     public class IndexViewModel
     {
-        public IEnumerable<Book> Books { get; set; }
+        public IEnumerable<BookExt> Books { get; set; }
         public PageInfo PageInfo { get; set; }
     }
     //Student student = db.Students.Find(id);
@@ -90,9 +90,12 @@ namespace BookStore.Controllers
         public ActionResult AllBooks(int page = 1)
         {
             int pageSize = 3; // количество объектов на страницу
-            IEnumerable<Book> boooksPerPages = db.Books.OrderBy(p => p.Id).Skip((page - 1) * pageSize).Take(pageSize);
+            //IEnumerable<Book> boooksPerPages = db.Books.OrderBy(p => p.Id).Skip((page - 1) * pageSize).Take(pageSize);
+            var BookExtTable = from p in db.Books
+                          join c in db.Authors on p.AuthorId equals c.Id
+                          select new BookExt{ Id = p.Id, Name = p.Name, Price = p.Price, Author = c.Name };
             PageInfo pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = db.Books.Count() };
-            IndexViewModel ivm = new IndexViewModel { PageInfo = pageInfo, Books = boooksPerPages };
+            IndexViewModel ivm = new IndexViewModel { PageInfo = pageInfo, Books = BookExtTable };
             return View(ivm);
             //ViewBag.Title = "books";
             //ViewBag.Books = db.Books;
